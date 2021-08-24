@@ -5,7 +5,6 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\FolderController;
 use App\Http\Controllers\HomeController;
-use app\Http\Controllers\auth\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,7 +21,6 @@ Route::group(['middleware' => 'auth'], function() {
 
       Route::get('/folders/create', [FolderController::class, 'showCreateForm'])->name('folders.create');
       Route::post('/folders/create', [FolderController::class, 'create']);
-      Route::get('/login', [LoginController::class, 'showLoginForm']);
 
     Route::group(['middleware' => 'can:view,folder'], function() {
       Route::get('/folders/{folder}/tasks', [TaskController::class, 'index'])->name('tasks.index');
