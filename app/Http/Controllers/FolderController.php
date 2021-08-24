@@ -6,8 +6,6 @@ use App\Models\Folder;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateFolder;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\UserController;
-
 
 class FolderController extends Controller
 {
