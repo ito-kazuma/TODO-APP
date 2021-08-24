@@ -22,8 +22,8 @@ Route::group(['middleware' => 'auth'], function() {
       Route::get('/folders/create', [FolderController::class, 'showCreateForm'])->name('folders.create');
       Route::post('/folders/create', [FolderController::class, 'create']);
 
-      Route::get('login', [LoginController::class, 'login']);
-      
+      Route::get('login', 'App\Http\Controllers\Auth\LoginController@login');
+
     Route::group(['middleware' => 'can:view,folder'], function() {
       Route::get('/folders/{folder}/tasks', [TaskController::class, 'index'])->name('tasks.index');
 
