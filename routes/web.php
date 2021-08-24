@@ -22,7 +22,6 @@ Route::group(['middleware' => 'auth'], function() {
       Route::get('/folders/create', [FolderController::class, 'showCreateForm'])->name('folders.create');
       Route::post('/folders/create', [FolderController::class, 'create']);
 
-      Route::get('/login', 'App\Http\Controllers\Auth\LoginController@login');
 
     Route::group(['middleware' => 'can:view,folder'], function() {
       Route::get('/folders/{folder}/tasks', [TaskController::class, 'index'])->name('tasks.index');
@@ -34,5 +33,6 @@ Route::group(['middleware' => 'auth'], function() {
       Route::post('/folders/{folder}/tasks/{task}/edit',[TaskController::class, 'edit']);
     });
 });
+Route::get('/login', 'App\Http\Controllers\Auth\LoginController@login');
 
 Auth::routes();
